@@ -12,6 +12,8 @@ namespace Smizard_of_S_more
 {
     public partial class Gamescreen : UserControl
     {
+
+        //I didn't have time to add comments sorry!
         public static List<gameBlock> blocks = new List<gameBlock>();
 
         public int borderSize = 20;
