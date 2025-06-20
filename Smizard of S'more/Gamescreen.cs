@@ -257,8 +257,16 @@ namespace Smizard_of_S_more
 
             if (makePoint == true)
             {
-                goal = new Rectangle(blocks[value].x + (gameBlock.size / 2) - pWidth / 2, blocks[value].y + (gameBlock.size / 2) - pHeight/2, pWidth, pHeight);
-                makePoint = false;
+                try
+                {
+                    goal = new Rectangle(blocks[value].x + (gameBlock.size / 2) - pWidth / 2, blocks[value].y + (gameBlock.size / 2) - pHeight / 2, pWidth, pHeight);
+                }
+                catch
+                {
+                    goal = new Rectangle(blocks[value].x + (gameBlock.size / 2) - pWidth / 2, blocks[value].y + (gameBlock.size / 2) - pHeight / 2, pWidth, pHeight);
+                }
+                
+                   makePoint = false;
             }
             
             if (_player.IntersectsWith(goal))
