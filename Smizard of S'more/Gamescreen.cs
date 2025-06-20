@@ -13,7 +13,7 @@ namespace Smizard_of_S_more
     public partial class Gamescreen : UserControl
     {
 
-        //I didn't have time to add comments sorry!
+        //public values
         public static List<gameBlock> blocks = new List<gameBlock>();
 
         public int borderSize = 20;
@@ -86,6 +86,7 @@ namespace Smizard_of_S_more
 
         private void Gamescreen_Load(object sender, EventArgs e)
         {
+            //starts game timer, initializes player and enemy, and adds edge walls
             gameTimer.Start();
             player = new Player();
             Myrme = new Monster();
@@ -105,6 +106,7 @@ namespace Smizard_of_S_more
             playScreenY = this.Height - 2 * borderSize;
 
             #region movement values
+            //places all blocks for the map
             blocks.Add(new DAndR(borderSize, borderSize));
             blocks.Add(new LeftNRight(borderSize + gameBlock.size, borderSize));
             blocks.Add(new LeftNRight(borderSize + 2 * gameBlock.size, borderSize));
@@ -187,9 +189,11 @@ namespace Smizard_of_S_more
             _player.X = player.x;
             _player.Y = player.y;
 
+            //detects the blocks that the enemy and player are currently on
             gameBlock curBlock = blocks.Find(g => player.x >= g.x && player.x < g.x + gameBlock.size && player.y >= g.y && player.y < g.y + gameBlock.size);
             gameBlock enemyBlock = blocks.Find(g => Myrme.x >= g.x && Myrme.x < g.x + gameBlock.size && Myrme.y >= g.y && Myrme.y < g.y + gameBlock.size);
 
+            //determines if the player will move
             if (rPressed == true && curBlock.rightAllowed == true)
             {
                 player.Move("right");
@@ -207,6 +211,7 @@ namespace Smizard_of_S_more
                 player.Move("down");
             }
 
+            //randomly moves the enemy around the screen
             int monMove = monMover.Next(1, 5);
             if (monMove == 1 && enemyBlock.rightAllowed == true)
             {
@@ -226,6 +231,7 @@ namespace Smizard_of_S_more
             }
             #endregion
 
+            //ends the game if the player runs into the monster
             if(_player.IntersectsWith(Myrme.monBox))
             {
                 Refresh();
@@ -240,6 +246,7 @@ namespace Smizard_of_S_more
 
         public void SetPoint()
         {
+            //places the goal point
             Random setValue = new Random();
             int value;
 
@@ -263,6 +270,7 @@ namespace Smizard_of_S_more
 
         private void Gamescreen_Paint(object sender, PaintEventArgs e)
         {
+            //draws everything
             if (gameTimer.Enabled == true)
             {
                 e.Graphics.FillRectangle(wallBrush, lWall);

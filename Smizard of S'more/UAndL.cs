@@ -17,6 +17,7 @@ namespace Smizard_of_S_more
 
             me = new Rectangle(x, y, size, size);
 
+
             upAllowed = true;
             rightAllowed = false;
             downAllowed = false;

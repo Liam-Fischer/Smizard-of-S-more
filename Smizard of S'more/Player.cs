@@ -20,6 +20,7 @@ namespace Smizard_of_S_more
 
         public Player()
         {
+            //builds the player
             startX = border + (gameBlock.size / 2) - (width/2);
             startY = Gamescreen.playScreenY - gameBlock.size + (gameBlock.size / 2) - ((height -1)/4);
 
@@ -29,6 +30,7 @@ namespace Smizard_of_S_more
 
         public void Move(string direction)
         {
+            //moves the player
             if (direction == "right" && (x + gameBlock.size) < Gamescreen.playScreenX - width)
             {
                x += speed;

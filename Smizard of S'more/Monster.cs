@@ -22,6 +22,7 @@ namespace Smizard_of_S_more
 
         public Monster()
         {
+            //builds the monster
             homeX  = 910 + width;
             homeY  = gameBlock.size - (3 * height / 2);
 
@@ -33,6 +34,7 @@ namespace Smizard_of_S_more
 
         public void Move(string direction)
         {
+            //moves the monster
             if (direction == "right")
             {
                 x += speed;

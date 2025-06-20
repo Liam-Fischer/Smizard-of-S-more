@@ -15,25 +15,8 @@ namespace Smizard_of_S_more
 
         public static Rectangle me;
 
+        //determines the allowable directions of movement
         public bool leftAllowed, rightAllowed, upAllowed, downAllowed;
 
-        //public gameBlock(int _x, int _y)
-        //{
-        //    x = _x;
-        //    y = _y;
-
-
-        //    moveType[0] = "l&R";
-        //    moveType[1] = "fourWay";
-        //    moveType[2] = "tIntDwn";
-        //    moveType[3] = "elbowDR";
-        //    moveType[5] = "u&D";
-        //    moveType[6] = "elbowUR";
-        //    moveType[7] = "elbowDL";
-        //    moveType[8] = "elbowUL";
-        //    moveType[9] = "tIntUp";
-        //    moveType[10] = "tIntLft";
-        //    moveType[11] = "tIntRt";
-        //}
     }
 }
